@@ -6,7 +6,7 @@ It comes with :
     - Only AAD connections are allowed
 	- Local admin is disabled
 	- A SPN is created and used for further Kubernetes objects provisionning (like namespaces)
-
+- API server lockdown with your detected public IP
 - Microsoft Defender enabled
 - Container Insights enabled
 - KEDA autoscaler
