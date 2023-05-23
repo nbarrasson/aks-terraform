@@ -42,13 +42,3 @@ variable "log_analytics_name" {
 variable "spn_name" {
   type = string
 }
-
-# name of the Kubernetes namespace
-variable "namespace_name1" {
-  type = string
-}
-
-# name of the Kubernetes namespace
-variable "namespace_name2" {
-  type = string
-}
