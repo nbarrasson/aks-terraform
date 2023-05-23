@@ -1,5 +1,3 @@
-# Put your kubernetes resources here (namespaces, pods, role, rolebinding, etc)
-
 # SPN and roles propagation can last long so waiting 1 minute before creating Kubernetes assets
 resource "time_sleep" "wait_1_minute" {
   depends_on      = [azurerm_role_assignment.kubeadminspn]
@@ -7,9 +5,10 @@ resource "time_sleep" "wait_1_minute" {
 }
 
 # Creating monitoring namespace
-module "monitoring" {
-  source         = "./modules/namespace"
-  namespace_name = "monitoring"
+resource "kubernetes_namespace_v1" "ns" {
+  metadata {
+    name = "monitoring"
+  }
   depends_on     = [time_sleep.wait_1_minute]
 }
 
