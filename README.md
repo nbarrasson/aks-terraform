@@ -10,6 +10,7 @@ It comes with :
 - Microsoft Defender enabled
 - Container Insights enabled
 - KEDA autoscaler
+- Prometheus
 
 Copy variables.sample.tfvars to variables.tfvars and replace with your values
 
