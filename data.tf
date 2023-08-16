@@ -31,3 +31,8 @@ data "azurerm_subnet" "subnet" {
   virtual_network_name = var.vnet_name
   resource_group_name  = var.rg_vnet
 }
+
+data "azurerm_container_registry" "acr" {
+  name                = var.acr_name
+  resource_group_name = var.rg_acr
+}

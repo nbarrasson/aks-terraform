@@ -1,6 +1,8 @@
 location           = "mylocation"
 aks_cluster_name   = "myclustername"
 rg_kube            = "mykubergname"
+rg_acr             = "myacrrgname"
+acr_name           = "myacrname"
 log_analytics_name = "myloganalyticsname"
 rg_log_analytics   = "myloganalyticsrgname"
 rg_vnet            = "myvnetrgname"

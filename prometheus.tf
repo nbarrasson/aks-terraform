@@ -9,7 +9,7 @@ resource "kubernetes_namespace_v1" "ns" {
   metadata {
     name = "monitoring"
   }
-  depends_on     = [time_sleep.wait_1_minute]
+  depends_on = [time_sleep.wait_1_minute]
 }
 
 # Deploying Prometheus
@@ -19,5 +19,5 @@ resource "helm_release" "prometheus" {
   repository = "https://prometheus-community.github.io/helm-charts"
   version    = "22.6.2"
   chart      = "prometheus"
-  depends_on = [ module.monitoring ]
+  depends_on = [kubernetes_namespace_v1.ns]
 }

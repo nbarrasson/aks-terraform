@@ -18,6 +18,11 @@ variable "rg_vnet" {
   type = string
 }
 
+# name of the ACR resource group
+variable "rg_acr" {
+  type = string
+}
+
 # name of the VNET
 variable "vnet_name" {
   type = string
@@ -35,6 +40,11 @@ variable "aks_cluster_name" {
 
 # name of the Log Analytics Workspace
 variable "log_analytics_name" {
+  type = string
+}
+
+# name of the ACR
+variable "acr_name" {
   type = string
 }
 

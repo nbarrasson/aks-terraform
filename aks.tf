@@ -29,7 +29,7 @@ resource "azurerm_kubernetes_cluster" "akscluster" {
   default_node_pool {
     name           = "default"
     node_count     = 2
-    vm_size        = "Standard_DS2_v2"
+    vm_size        = "Standard_DS3_v2"
     vnet_subnet_id = data.azurerm_subnet.subnet.id
   }
 
@@ -62,7 +62,15 @@ resource "azurerm_kubernetes_cluster" "akscluster" {
   azure_policy_enabled = true
 
   # Enable KEDA autoscaler
-  workload_autoscaler_profile {
-    keda_enabled = true
-  }
+  # workload_autoscaler_profile {
+  #   keda_enabled = true
+  # }
+}
+
+# Create Role Assignment on Azure Container Registry
+resource "azurerm_role_assignment" "acr_role_assignment" {
+  scope                            = data.azurerm_container_registry.acr.id
+  role_definition_name             = "AcrPull"
+  principal_id                     = azurerm_kubernetes_cluster.akscluster.kubelet_identity[0].object_id
+  skip_service_principal_aad_check = true
 }
